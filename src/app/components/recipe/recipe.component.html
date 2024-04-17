@@ -2,35 +2,37 @@
 <div class="container mx-auto px-4">
   <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <div *ngFor="let recipe of recipes" class="relative" [hidden]="deletedRecipes.includes(recipe._id)">
-      <!-- Wrap the entire card with the routerLink directive -->
+      <!-- Wrap the image with the routerLink directive -->
       <a *ngIf="recipe._id" [routerLink]="['/recipes', recipe._id]" class="hover:no-underline">
         <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
           <img [src]="recipe.imgURL" [alt]="recipe.name" width="250" height="250" class="w-full h-48 object-cover" />
-          <div class="relative left-0 w-full bg-white " >
-            <!-- Recipe name and cuisine -->
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold text-black mb-2">{{ recipe.name }}</h3>
-              <p class="text-gray-700 "><span class="font-semibold">Cuisine:</span> {{ recipe.cuisine }}</p>
-            </div>
-              
-            <!-- Icons -->
-            <div class="flex justify-end items-center px-6 pb-3">
-              <!-- Delete button -->
-              <button (click)="handleDelete(recipe._id)" class="bg-white text-red-500 rounded-full p-2 mr-2 hover:bg-red-500 hover:text-white focus:outline-none focus:bg-red-500 focus:text-white">
-                <fa-icon [icon]="faTrash" class="h-6 w-6"></fa-icon>
-              </button>
-              <!-- Edit button -->
-              <button (click)="handleEdit(recipe._id)" class="bg-white text-blue-500 rounded-full p-2 mr-2 hover:bg-blue-500 hover:text-white focus:outline-none focus:bg-blue-500 focus:text-white">
-                <fa-icon [icon]="faPen" class="h-6 w-6"></fa-icon>
-              </button>
-              <!-- Heart icon -->
-              <button class="bg-white text-red-300 border hover:bg-red-600 rounded-full p-2">
-                <fa-icon [icon]="faHeart" class="h-6 w-6"></fa-icon>
-              </button>
-            </div>
-          </div>
         </div>
       </a>
+
+      <!-- Recipe details and icons -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer">
+        <!-- Recipe details -->
+        <div class="p-4">
+          <h3 class="text-2xl font-semibold text-black mb-2">{{ recipe.name }}</h3>
+          <p class="text-gray-700"><span class="font-semibold">Cuisine:</span> {{ recipe.cuisine }}</p>
+        </div>
+          
+        <!-- Icons -->
+        <div class="flex justify-end items-center px-6 pb-3">
+          <!-- Delete button -->
+          <button *ngIf="recipe._id" (click)="handleDelete(recipe._id)" class="bg-white text-red-500 rounded-full p-2 mr-2 hover:bg-red-500 hover:text-white focus:outline-none focus:bg-red-500 focus:text-white">
+            <fa-icon [icon]="faTrash" class="h-6 w-6"></fa-icon>
+          </button>
+          <!-- Edit button -->
+          <button *ngIf="recipe._id" (click)="handleEdit(recipe._id)" class="bg-white text-blue-500 rounded-full p-2 mr-2 hover:bg-blue-500 hover:text-white focus:outline-none focus:bg-blue-500 focus:text-white">
+            <fa-icon [icon]="faPen" class="h-6 w-6"></fa-icon>
+          </button>
+          <!-- Heart icon -->
+          <button *ngIf="recipe._id" class="bg-white text-red-300 border hover:bg-red-600 rounded-full p-2">
+            <fa-icon [icon]="faHeart" class="h-6 w-6"></fa-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
