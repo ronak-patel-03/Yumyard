@@ -27,7 +27,7 @@ export class UpdateRecipeComponent implements OnInit {
   }
 
   fetchRecipe(id: string): void {
-    this.http.get<Recipe>(`http://localhost:3000/recipes/${id}`).subscribe(
+    this.http.get<Recipe>(`https://recipe-backend-r.onrender.com/recipes/${id}`).subscribe(
       (data: Recipe) => {
         this.recipe = data;
       },
@@ -41,7 +41,7 @@ export class UpdateRecipeComponent implements OnInit {
     if (!this.recipe) {
       return;
     }
-    this.http.put(`http://localhost:3000/recipes/${this.recipe._id}`, this.recipe)
+    this.http.put(`https://recipe-backend-r.onrender.com/recipes/${this.recipe._id}`, this.recipe)
       .subscribe(
         (response: any) => {
           if (response) {
