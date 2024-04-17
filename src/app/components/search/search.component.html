@@ -1,0 +1,31 @@
+<div class="container mx-auto px-4 py-1">
+    <div class="mx-5 mb-8">
+      <h1 class="text-3xl font-bold mb-5 text-black flex items-center">
+        <span class="mr-2"></span> Search Recipes
+      </h1>
+      <div class="flex items-center mb-4">
+        <input
+          type="text"
+          placeholder="Search recipes by name..."
+          [(ngModel)]="query"
+          class="px-4 py-2 border border-gray-800 rounded-md focus:outline-none focus:ring focus:border-blue-300 w-80"
+        />
+        <select
+        [(ngModel)]="cuisine"
+        (change)="handleCuisineSelect()"
+        class="ml-2 px-4 py-2 border border-gray-800 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+      >
+        <option value="">Select Cuisine</option>
+        <option *ngFor="let cuisine of cuisineOptions" [value]="cuisine">{{ cuisine }}</option>
+      </select>
+        <button
+          (click)="handleSearch()"
+          class="ml-2 px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300"
+        >
+          Search
+        </button>
+      </div>
+     
+    </div>
+    <app-recipe [recipes]="filteredRecipes"></app-recipe>
+  </div>

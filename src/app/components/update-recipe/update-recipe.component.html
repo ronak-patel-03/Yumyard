@@ -1,0 +1,54 @@
+<!-- //src/app/components/add-recipe/update-recipe.component.html -->
+<div class="container mx-auto">
+  <h2 class="text-2xl font-bold">Update Recipe</h2>
+  <div class="border mt-4"></div>
+  <form (ngSubmit)="submitForm()" class="mt-4">
+      <div class="mb-4">
+          <label for="name" class="block font-medium">Name:</label>
+          <input type="text" id="name" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.name" (ngModelChange)="recipe && (recipe.name = $event)" name="name">
+      </div>
+      <div class="mb-4">
+          <label for="url" class="block font-medium">URL:</label>
+          <input type="text" id="url" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.url" (ngModelChange)="recipe && (recipe.url = $event)" name="url">
+      </div>
+      <div class="mb-4">
+          <label for="description" class="block font-medium">Description:</label>
+          <textarea class="form-textarea mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="description" [ngModel]="recipe?.description" (ngModelChange)="recipe && (recipe.description = $event)" name="description"></textarea>
+      </div>
+      <div class="mb-4">
+          <label for="ingredients" class="block font-medium">Ingredients:</label>
+          <input type="text" id="ingredients" class="form-input mt-1 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.ingredients" (ngModelChange)="recipe && (recipe.ingredients = $event)" name="ingredients">
+      </div>
+      <div class="mb-4">
+          <label for="method" class="block font-medium">Method:</label>
+          <textarea class="form-textarea mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" id="method" [ngModel]="recipe?.method" (ngModelChange)="recipe && (recipe.method = $event)" name="method"></textarea>
+      </div>
+      <div class="mb-4">
+          <label for="cuisine" class="block font-medium">Cuisine:</label>
+          <input type="text" id="cuisine" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.cuisine" (ngModelChange)="recipe && (recipe.cuisine = $event)" name="cuisine">
+      </div>
+      <div class="mb-4">
+          <label for="Diet" class="block font-medium">Diet:</label>
+          <input type="text" id="Diet" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.Diet" (ngModelChange)="recipe && (recipe.Diet = $event)" name="Diet">
+      </div>
+      <div class="mb-4">
+          <label for="serving" class="block font-medium">Serving:</label>
+          <input type="text" id="serving" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.serving" (ngModelChange)="recipe && (recipe.serving = $event)" name="serving">
+      </div>
+      <div class="mb-4">
+          <label for="calories" class="block font-medium">Calories:</label>
+          <input type="text" id="calories" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.calories" (ngModelChange)="recipe && (recipe.calories = $event)" name="calories">
+      </div>
+      <div class="mb-4">
+          <label for="imgURL" class="block font-medium">Image URL:</label>
+          <input type="text" id="imgURL" class="form-input mt-1 focus:ring-indigo-500 p-2 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" [ngModel]="recipe?.imgURL" (ngModelChange)="recipe && (recipe.imgURL = $event)" name="imgURL">
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Update</button>
+  </form>
+</div>
+
+
+
+
+
+  

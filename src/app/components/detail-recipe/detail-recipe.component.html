@@ -1,0 +1,58 @@
+<div class="bg-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto py-8 px-4">
+      <div class="bg-white rounded-lg overflow-hidden shadow-lg" *ngIf="recipe">
+        <div class="relative">
+          <img [src]="recipe.imgURL" [alt]="recipe.name" class="w-full h-96 object-cover object-center">
+          <div class="absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 text-white">
+            <h1 class="text-4xl font-semibold">{{ recipe.name }}</h1>
+            <p class="text-lg">{{ recipe.cuisine }}</p>
+          </div>
+        </div>
+        <div class="p-8">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-800">Description</h2>
+          <p class="text-base text-gray-700 mb-6">{{ recipe.description }}</p>
+          <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Ingredients</h2>
+            <ul class="list-disc list-inside text-base text-gray-800">
+              <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+            </ul>
+          </div>
+          <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Instructions</h2>
+            <div class="list-decimal list-inside text-base text-gray-800">
+              <p *ngFor="let step of recipe.method.split('\n')">{{ step }}</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-base text-gray-800 mb-6">
+            <div class="border p-4 rounded-lg">
+              <p class="font-semibold">Diet</p>
+              <p>{{ recipe.Diet }}</p>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <p class="font-semibold">Serving Size</p>
+              <p>{{ recipe.serving }}</p>
+            </div>
+            <div class="border p-4 rounded-lg">
+              <p class="font-semibold">Calories</p>
+              <p>{{ recipe.calories }}</p>
+            </div>
+          </div>
+          <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Recipe Source</h2>
+            <p class="text-base text-gray-800">
+              <a [href]="recipe.url" target="_blank" rel="noopener noreferrer" class="text-blue-500 underline">{{ recipe.url }}</a>
+            </p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold mb-4 text-gray-800">Reviews</h2>
+            <div *ngFor="let review of recipe.Reviews" class="bg-gray-200 p-4 rounded-lg mb-4">
+              <p class="font-semibold text-gray-800">Username: {{ review.username }}</p>
+              <p class="text-gray-700">{{ review.comment }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div *ngIf="!recipe" class="text-center text-gray-800 mt-4">No recipe found</div> -->
+    </div>
+  </div>
+  

@@ -1,0 +1,17 @@
+<div class="flex items-center justify-center h-screen">
+    <div class="max-w-md w-full">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-8 text-center">Favorite Recipes</h2>
+        <div class="mb-4" *ngIf="favoriteRecipes.length === 0">
+          <p class="text-center">No favorite recipes found</p>
+        </div>
+        <div class="flex flex-col space-y-4" *ngFor="let recipe of favoriteRecipes">
+          <div class="flex items-center justify-between">
+            <div class="text-xl font-medium">{{ recipe.name }}</div>
+            <button class="bg-gray-400 hover:bg-gray-500 disabled:bg-gray-100 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" (click)="removeFromFavorites(recipe._id)">Remove from favorites</button>
+          </div>
+          <div class="text-gray-600">{{ recipe.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>

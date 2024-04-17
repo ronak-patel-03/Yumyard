@@ -1,0 +1,62 @@
+<!-- add-recipe.component.html -->
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
+      <h1 class="text-3xl text-center font-semibold mb-6">Add Recipe</h1>
+      <form (submit)="handleSubmit()" class="space-y-4">
+        <label class="block">
+          Name:
+          <input type="text" name="name" [(ngModel)]="recipe.name"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          URL:
+          <input type="text" name="url" [(ngModel)]="recipe.url"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          Ingredients (comma-separated):
+          <input type="text" name="ingredients" [(ngModel)]="recipe.ingredients"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          Description:
+          <textarea name="description" [(ngModel)]="recipe.description"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500"></textarea>
+        </label>
+        <label class="block">
+          Method:
+          <textarea name="method" [(ngModel)]="recipe.method"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500"></textarea>
+        </label>
+        <label class="block">
+          Cuisine:
+          <input type="text" name="cuisine" [(ngModel)]="recipe.cuisine"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          Diet:
+          <input type="text" name="Diet" [(ngModel)]="recipe.Diet"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          Serving:
+          <input type="text" name="serving" [(ngModel)]="recipe.serving"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          Calories:
+          <input type="text" name="calories" [(ngModel)]="recipe.calories"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <label class="block">
+          Image URL:
+          <input type="text" name="imgURL" [(ngModel)]="recipe.imgURL"
+            class="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500" />
+        </label>
+        <button type="submit"  (submit)="handleSubmit()"
+          class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,9 @@
+<ng-container *ngIf="!isLoginPage()">
+    <app-navigation></app-navigation>   
+</ng-container>
+<div class="py-5" [ngClass]="{ 'bg-gray-100': !isLoginPage(), 'bg-white': isLoginPage() }">
+    <router-outlet></router-outlet>
+</div>
+<ng-container *ngIf="!isLoginPage()">
+    <app-footer></app-footer>  
+</ng-container>

@@ -1,0 +1,37 @@
+<div class="flex items-center justify-center h-screen">
+  <div class="max-w-md w-full">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold mb-8 text-center">Signup Form</h2>
+      <form *ngIf="signupForm" [formGroup]="signupForm" (ngSubmit)="signup()">
+        <div class="mb-4">
+          <label for="username" class="block font-medium">Name:</label>
+          <input type="text" class="form-input mt-1 px-2 py-0.5 block w-full rounded-md border border-gray-300" id="username" formControlName="username">
+          <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.dirty" class="text-red-500 mt-1">
+            <small *ngIf="signupForm.get('username')?.errors?.['required']">Name is required</small>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block font-medium">Email:</label>
+          <input type="email" class="form-input mt-1 px-2 py-0.5  block w-full rounded-md border border-gray-300" id="email" formControlName="email">
+          <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.dirty" class="text-red-500 mt-1">
+            <small *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</small>
+            <small *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email</small>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label for="password" class="block font-medium">Password:</label>
+          <input type="password" class="form-input mt-1 px-2 py-0.5  block w-full rounded-md border border-gray-300" id="password" formControlName="password">
+          <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.dirty" class="text-red-500 mt-1">
+            <small *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</small>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <button type="submit" class="bg-gray-400 hover:bg-gray-500 disabled:bg-gray-100 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" [disabled]="signupForm.invalid">Signup</button>
+        </div>
+        <p class="mt-6 text-center">Already have account! <span class="text-blue-500 cursor-pointer" (click)="gotologin()">Login here</span></p>
+        <div *ngIf="signupMessage" class="text-red-500 mt-4">{{ signupMessage }}</div>
+      </form>
+
+    </div>
+  </div>
+</div>
