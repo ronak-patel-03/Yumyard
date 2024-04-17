@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
   }
 
   fetchRecipes(): void {
-    this.http.get<Recipe[]>('http://localhost:3000/recipes').subscribe(
+    this.http.get<Recipe[]>('https://recipe-backend-r.onrender.com/recipes').subscribe(
       (response) => {
         this.recipes = response;
         this.filteredRecipes = response;
